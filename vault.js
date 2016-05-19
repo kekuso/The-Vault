@@ -1,10 +1,13 @@
 'use strict';
 module.exports = function() {
   var secretKey = null;
+  var secretValue = null;
   return {
+    //key: 0,
+
     getValue: function(key) {
-      if(key) {
-        return secretKey;
+      if(secretKey === key) {
+        return secretValue;
       }
       else {
         return null;
@@ -12,7 +15,8 @@ module.exports = function() {
     },
 
     setValue: function(key, value) {
-      secretKey = value;
+      secretKey = key;
+      secretValue = value;
     }
   };
 };
